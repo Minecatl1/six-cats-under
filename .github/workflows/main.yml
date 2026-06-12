@@ -59,7 +59,7 @@ jobs:
           find . -maxdepth 3 -type f \( -name "*.zip" -o -name "*.tar.gz" -o -name "*.tgz" \) | while read -r archive; do
             echo "Extracting nested archive: $archive"
             if [[ "$archive" == *.zip ]]; then
-              tar -xvf "$archive" && rm "$archive"
+              unzip -q "$archive" && rm "$archive"
             else
               tar -xvf "$archive" && rm "$archive"
             fi
